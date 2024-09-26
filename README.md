@@ -4,16 +4,16 @@ A skeleton Rust command-line application setup with hexagonal architecture in mi
 
 ## Test
 
-Run Serve command
+Run print command
 
 ```
-cargo run serve
+cargo run print
 ```
 
-Set port flag:
+Set command arguments:
 
 ```
-cargo run serve --port 8081
+cargo run print --prefix "hello world" --value "my value"
 ```
 
 ## Dependencies

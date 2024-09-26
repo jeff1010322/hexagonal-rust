@@ -2,7 +2,7 @@ use clap::{Parser, Subcommand};
 use anyhow::Result;
 
 mod serve;
-mod set;
+mod print;
 
 #[derive(Parser, Debug)]
 #[command(author, version, about, long_about = None)]
@@ -14,14 +14,14 @@ pub struct Root {
 #[derive(Subcommand, Debug, Clone)]
 enum Commands {
     Serve(serve::Serve),
-    Set(set::Set)
+    Print(print::Print)
 }
 
 impl Root {
     pub async fn run() -> Result<()>  {
         match Self::parse().command {
             Commands::Serve(cmd) => cmd.run().await?,
-            Commands::Set(cmd) => cmd.run().await?
+            Commands::Print(cmd) => cmd.run().await?
         }
 
         Ok(())
